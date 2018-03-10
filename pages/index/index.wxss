@@ -1,0 +1,29 @@
+.container {
+  min-height: 100vh;
+}
+
+.form {
+  padding: 30rpx 40rpx;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+
+.form-group view {
+  font-size: 32rpx;
+}
+
+.title {
+  height: 60vw;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title input {
+  border-bottom: 1px solid #ccc;
+}
