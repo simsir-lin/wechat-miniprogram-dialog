@@ -1,0 +1,26 @@
+<!--
+ * Author: simsir-lin
+ * Github: https://github.com/simsir-lin
+ * Email: 15986907592@163.com
+-->
+
+<view class="dialog-wxapp" wx:if="{{visible}}">
+  <view class='dialog-wxapp-mask' style="background: rgba(0, 0, 0, {{opacity}});" catchtouchstart="touchstart"></view>
+  <view class="dialog-wxapp-main" style="height:{{fullscreen ? '100%':'auto'}};{{position == 'center' ? 'top: 50%; transform: translateY(-50%);' : position == 'top' ? 'top:0;' : 'bottom:0;'}}">
+    <view class="dialog-wxapp-container {{animation ? 'dialog-wxapp-animation':''}}" style="width: {{fullscreen ? '100' : width}}%; height:{{fullscreen ? '100%':'auto'}};">
+      <view class='dialog-wxapp-container__title' wx:if="{{title.length>0}}">
+        <view>{{ title }}</view>
+        <view>
+          <image wx:if="{{showClose}}" bindtap='close' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB+ElEQVR4Ac3XNWIbQRTG8RfmyqLeowOE6RjBNoxmZrsyXMDs1tBGh1Aawx2CZlfhTP7FbFi7b8TFT/AW5hMMydmzZ7VO4hYmkMV7fHTeu9qEO+ckRENzksE0dpBBPS4jiSNO0tXqkcEOpmEKCXAUI3iPIcQhSgkM4T1GcdQ3QC1WsIQUJE8pLGEFRhvgDF7jGaRInuE1zkQFMHiL65Aiu463MLkCHMMqnkNK5DnWcOx/AUaxBCmxRYz+HaAW60hBSiyJdZjfA0xjEJLDXHBcaRCzEcdnggCnsBPRz3tg0QyJ0AyL7pBz4tjBKXFDZwYSoREWnSHndMK6cyVCBreEhynUQRS6YNET8i11QRTqMCU8ZHEVotQKi9awmsIVZIWHDcQhHuph8dCxqId4iGNDePiEwxBPD2CdBxBPh/GpkACPYJ1HhQTI5ydohsVdx6I5358giysQpa7/dLUmWHT6/wn9umEPLDq1XTTEc0zpByJdVwvOadEPRLqhuA8W9R5dtFc7FAtmIiabqeCGSj2YguQwgBlIUDBYR7KM03G6kguSsVxLsrUyLcmOV3RRWtXL8oDBGhYKXCcmsYA1mHy2ZqNYxwBiEKUYBrCu3pqFSGMau3iBOlxCAoechKvVuXP2MIM0JIzv9vw2JvES6/jsrLvapDvnJETjB6uu9U2HOlCCAAAAAElFTkSuQmCC'></image>
+        </view>
+      </view>
+      <view class='dialog-wxapp-container__body'>
+        <slot></slot>
+      </view>
+      <view class='dialog-wxapp-container__footer' wx:if="{{showFooter}}">
+        <view class='dialog-wxapp-container__footer__cancel' bindtap="close">取消</view>
+        <view class='dialog-wxapp-container__footer__confirm' bindtap='confirm'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>
