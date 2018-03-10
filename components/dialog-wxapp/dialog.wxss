@@ -1,3 +1,9 @@
+/*
+ * Author: simsir-lin
+ * Github: https://github.com/simsir-lin
+ * Email: 15986907592@163.com
+ */
+ 
 @keyframes modalSlideIn {
   from {
     transform: translateY(150%);
@@ -30,7 +36,7 @@ view, input, text {
   bottom: 0;
   z-index: 10000;
   width: 100vw;
-  height: 100%;  
+  height: 100%;
 }
 
 .dialog-wxapp-main {
