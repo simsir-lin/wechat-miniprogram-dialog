@@ -4,14 +4,39 @@ Page({
     options: {
       showclose: true,
       showfooter: true,
-      closeonclickmodal: true
+      closeonclickmodal: true,
+      fullscreen: false
     },
     title: 'dialog title',
-    opacity: '0.4'
+    opacity: '0.4',
+    width: '85',
+    position: 'center',
+    positions: [{
+      title: '居中',
+      value: 'center'
+    }, {
+      title: '顶部',
+      value: 'top'
+    }, {
+      title: '底部',
+      value: 'bottom'
+    }],
+    positionIndex: 0
+  },
+  handlePickerChange: function (e) {
+    this.setData({
+      position: this.data.positions[e.detail.value].value,
+      positionIndex: e.detail.value
+    })
   },
   handleSliderChange: function (e) {
     this.setData({
       opacity: e.detail.value
+    })
+  },
+  handleWidthInput: function (e) {
+    this.setData({
+      width: e.detail.value
     })
   },
   handleInput: function (e) {
@@ -27,12 +52,13 @@ Page({
   },
   showDialog: function () {
     this.setData({
-      dialogvisible: !this.data.dialogvisible
+      dialogvisible: true
     })
   },
   handleClose: function () {
-    this.setData({
-      dialogvisible: false
+    wx.showToast({
+      title: 'close dialog',
+      icon: 'none'
     })
   },
   handleOpen: function () {
@@ -42,8 +68,9 @@ Page({
     })
   },
   handleConfirm: function () {
-    this.setData({
-      dialogvisible: false
+    wx.showToast({
+      title: 'confirm',
+      icon: 'none'
     })
   },
   onLoad: function (options) {

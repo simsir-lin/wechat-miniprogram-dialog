@@ -40,15 +40,12 @@ view, input, text {
 }
 
 .dialog-wxapp-main {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  position: fixed;  
   z-index: 10001;
   width: 100vw;
 }
 
-.dialog-wxapp-container {
-  width: 85vw;
+.dialog-wxapp-container {  
   margin: 0 auto;
   background: #fff;
   z-index: 10001;

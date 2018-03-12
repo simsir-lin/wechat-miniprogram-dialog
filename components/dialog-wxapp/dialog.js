@@ -3,7 +3,7 @@
  * Github: https://github.com/simsir-lin
  * Email: 15986907592@163.com
  */
- 
+
 Component({
   properties: {
     visible: {
@@ -42,11 +42,36 @@ Component({
     closeOnClickModal: {
       type: Boolean,
       value: true
+    },
+    fullscreen: {
+      type: Boolean,
+      value: false
+    },
+    width: {
+      type: Number,
+      value: 85
+    },
+    position: {
+      type: String,
+      value: 'center',
+      observer: function (newVal) {
+        this.setData({
+          _posttion: this.checkPosition(newVal) ? newVal : 'center'
+        })
+      }
     }
   },
   data: {
+    positions: ['center', 'top', 'bottom'],
+    _posttion: 'center'
   },
   attached: function () {
+    this.setData({
+      _posttion: this.checkPosition(this.data.position) ? this.data.position : 'center'
+    })
+    if (!this.dataset.model) {
+      console.warn("dialog-wxapp: dataset 'model' undefined")
+    }
   },
   moved: function () {
   },
@@ -54,15 +79,28 @@ Component({
   },
 
   methods: {
+    checkPosition: function (val) {
+      return this.data.positions.indexOf(val) >= 0;
+    },
     touchstart: function () {
       if (this.data.closeOnClickModal) {
-        this.triggerEvent('close');
+        this.close();
+      }
+    },
+    closedialog: function () {
+      if (this.dataset.model) {
+        let currentPage = getCurrentPages().pop();
+        let data = {};
+        data[this.dataset.model] = false;
+        currentPage.setData(data);
       }
     },
     close: function () {
+      this.closedialog();
       this.triggerEvent('close');
     },
     confirm: function () {
+      this.closedialog();
       this.triggerEvent('confirm');
     }
   }

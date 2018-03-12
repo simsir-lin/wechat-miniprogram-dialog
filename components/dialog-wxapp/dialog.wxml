@@ -6,8 +6,8 @@
 
 <view class="dialog-wxapp" wx:if="{{visible}}">
   <view class='dialog-wxapp-mask' style="background: rgba(0, 0, 0, {{opacity}});" catchtouchstart="touchstart"></view>
-  <view class="dialog-wxapp-main">
-    <view class="dialog-wxapp-container {{animation ? 'dialog-wxapp-animation':''}}">
+  <view class="dialog-wxapp-main" style="height:{{fullscreen ? '100%':'auto'}};{{position == 'center' ? 'top: 50%; transform: translateY(-50%);' : position == 'top' ? 'top:0;' : 'bottom:0;'}}">
+    <view class="dialog-wxapp-container {{animation ? 'dialog-wxapp-animation':''}}" style="width: {{fullscreen ? '100' : width}}%; height:{{fullscreen ? '100%':'auto'}};">
       <view class='dialog-wxapp-container__title' wx:if="{{title.length>0}}">
         <view>{{ title }}</view>
         <view>

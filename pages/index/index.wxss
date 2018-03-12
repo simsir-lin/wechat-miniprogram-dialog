@@ -17,13 +17,22 @@
   font-size: 32rpx;
 }
 
-.title {
+.inputs {
   height: 60vw;
   background: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-.title input {
+
+.inputs input {
   border-bottom: 1px solid #ccc;
+}
+
+.inputs>view {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  margin: 10rpx 0;
 }
