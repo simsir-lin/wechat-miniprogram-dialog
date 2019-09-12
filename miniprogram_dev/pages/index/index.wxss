@@ -1,0 +1,77 @@
+.container {
+  min-height: 100vh;
+}
+
+view {
+  font-size: 32rpx;
+}
+
+input {
+  font-size: 32rpx;
+  border-bottom: 1px solid #666;
+}
+
+.form {
+  padding: 30rpx 40rpx;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+
+.inputs {
+  height: 45vw;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputs>view {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  margin: 10rpx 0;
+}
+
+.slider {
+  padding: 40rpx 0;
+}
+
+.button-conf {
+  padding-bottom: 30rpx;
+  margin-top: 20rpx;
+}
+
+.button-conf--title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-conf--input {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.button-conf--input>input {
+  width: 180rpx;
+}
+
+.button-conf--color {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.button-conf--color>input {
+  width: 125rpx;
+}
+.button-conf--color-background {
+  width: 40rpx;
+  height: 34rpx;
+  margin-left: 20rpx;
+}

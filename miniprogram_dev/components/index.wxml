@@ -1,0 +1,10 @@
+<view class="mask" style="background-color: rgba(0, 0, 0, {{opacity}})" wx:if="{{visible}}" bindtouchstart="touchMask">
+  <view class="dialog {{animation ? 'animation':''}}" style="width:{{width}};max-width:{{width}};">
+    <view class="dialog--header" wx:if="{{title}}">{{ title }}</view>
+    <view class="dialog--body"><slot></slot></view>
+    <view class="dialog--footer" wx:if="{{showConfirm || showCancel}}">
+      <view class="dialog--footer__button {{showCancel ? 'button--border':''}}" style="color:{{cancelColor}}" wx:if="{{showCancel}}" catchtap="cancel">{{ cancelText }}</view>
+      <view class="dialog--footer__button" style="color:{{confirmColor}}" wx:if="{{showConfirm}}" catchtap="confirm">{{ confirmText }}</view>
+    </view>
+  </view>
+</view>

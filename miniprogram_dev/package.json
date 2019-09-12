@@ -1,3 +1,5 @@
 {
-	"dependencies": {}
+	"dependencies": {
+		"commitizen": "^4.0.3"
+	}
 }

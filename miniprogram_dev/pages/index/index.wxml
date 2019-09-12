@@ -1,1 +1,58 @@
-<comp></comp>
+<view class="container">
+  <dialog visible="{{dialogvisible}}"
+    title="{{inputs[0].value}}"
+    opacity="{{opacity}}"
+    animation="{{switchs[0].value}}"
+    width="{{inputs[1].value}}"
+    closeOnClickModal="{{switchs[1].value}}"
+    show-confirm="{{buttonConf[0].show}}"
+    confirm-text="{{buttonConf[0].text}}"
+    confirm-color="{{buttonConf[0].color}}"
+    show-cancel="{{buttonConf[1].show}}"
+    cancel-text="{{buttonConf[1].text}}"
+    cancel-color="{{buttonConf[1].color}}"
+    bindclose="closeDialog"
+    bindopen="handleOpen"
+    bindcancel="cancel"
+    bindconfirm="confirm" >
+    <view style='height:200rpx;text-align: center;'>
+      这是插入的内容
+    </view>
+  </dialog>
+  <view class='inputs'>
+    <view wx:for="{{inputs}}" wx:key="{{index}}">
+      <text>{{ item.text }}</text>
+      <input value='{{item.value}}' bindinput='handleInput' data-index="{{index}}"></input>
+    </view>
+  </view>
+  <view class='form'>
+    <view class='form-group' wx:for="{{switchs}}" wx:key="{{index}}">
+      <view>{{ item.text }}</view>
+      <view>
+        <switch checked="{{item.value}}" bindchange='handleSwitchChange' data-index="{{index}}" />
+      </view>
+    </view>
+    <view class="button-conf" wx:for="{{buttonConf}}" wx:key="{{index}}">
+      <view class="button-conf--title">
+        <view>{{ item.title }}</view>
+        <switch checked="{{item.show}}" bindchange='handleSwitchButton' data-index="{{index}}" />
+      </view>
+      <view class="button-conf--input">
+        <view>文字：</view>
+        <input type="text" value="{{ item.text }}" bindinput="handleInputButtonText" data-index="{{index}}"></input>
+      </view>
+      <view class="button-conf--color">
+        <view>颜色：</view>
+        <input type="text" value="{{ item.color }}" bindinput="handleInputButtonColor" data-index="{{index}}"></input>
+        <view class="button-conf--color-background" style="background-color:{{item.color}}"></view>
+      </view>
+    </view>
+    <view>
+      <view>遮罩层透明度</view>
+      <view class='slider'>
+        <slider bindchange="handleSliderChange" value="{{opacity}}" min="0.1" step="0.1" max="1" />
+      </view>
+    </view>
+    <button bindtap='showDialog'>打开弹窗(Open Dialog)</button>
+  </view>
+</view>
