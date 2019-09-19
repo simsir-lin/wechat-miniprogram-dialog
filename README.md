@@ -1,5 +1,7 @@
 # wechat-miniprogram-dialog
 
+![预览图](https://raw.githubusercontent.com/simsir-lin/wechat-miniprogram-dialog/master/screenshot.jpg "预览图")
+
 ### 下载
 ``` bash
 git clone https://github.com/simsir-lin/wechat-miniprogram-dialog.git
