@@ -1,31 +1,35 @@
 <view class="container">
-  <dialog visible="{{dialogvisible}}"
+  <dialog wx:if="{{dialogvisible}}"
     title="{{inputs[0].value}}"
     opacity="{{opacity}}"
     animation="{{switchs[0].value}}"
     width="{{inputs[1].value}}"
     closeOnClickModal="{{switchs[1].value}}"
+    loading="{{switchs[2].value}}"
+    gather-form-id="{{switchs[3].value}}"
     show-confirm="{{buttonConf[0].show}}"
     confirm-text="{{buttonConf[0].text}}"
     confirm-color="{{buttonConf[0].color}}"
+    confirm-background-color="{{buttonConf[0].background}}"
     show-cancel="{{buttonConf[1].show}}"
     cancel-text="{{buttonConf[1].text}}"
     cancel-color="{{buttonConf[1].color}}"
+    cancel-background-color="{{buttonConf[1].background}}"
     bindclose="closeDialog"
-    bindopen="handleOpen"
     bindcancel="cancel"
-    bindconfirm="confirm" >
+    bindconfirm="confirm"
+    bindgetFormId="getFormId" >
     <view style='height:200rpx;text-align: center;'>
       这是插入的内容
     </view>
   </dialog>
-  <view class='inputs'>
-    <view wx:for="{{inputs}}" wx:key="{{index}}">
-      <text>{{ item.text }}</text>
-      <input value='{{item.value}}' bindinput='handleInput' data-index="{{index}}"></input>
-    </view>
-  </view>
   <view class='form'>
+    <view class='inputs'>
+      <view wx:for="{{inputs}}" wx:key="{{index}}">
+        <text>{{ item.text }}</text>
+        <input value='{{item.value}}' bindinput='handleInput' data-index="{{index}}"></input>
+      </view>
+    </view>
     <view class='form-group' wx:for="{{switchs}}" wx:key="{{index}}">
       <view>{{ item.text }}</view>
       <view>
@@ -45,6 +49,11 @@
         <view>颜色：</view>
         <input type="text" value="{{ item.color }}" bindinput="handleInputButtonColor" data-index="{{index}}"></input>
         <view class="button-conf--color-background" style="background-color:{{item.color}}"></view>
+      </view>
+      <view class="button-conf--color">
+        <view>背景颜色：</view>
+        <input type="text" value="{{ item.background }}" bindinput="handleInputButtonBackgroundColor" data-index="{{index}}"></input>
+        <view class="button-conf--color-background" style="background-color:{{item.background}}"></view>
       </view>
     </view>
     <view>

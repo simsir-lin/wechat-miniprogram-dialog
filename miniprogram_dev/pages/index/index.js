@@ -14,17 +14,25 @@ Page({
     }, {
       text: '是否可以点击modal关闭Dialog',
       value: true
+    }, {
+      text: '确认按钮是否带 loading 图标',
+      value: false
+    }, {
+      text: '是否收集formId',
+      value: false
     }],
     buttonConf: [{
       title: '确认按钮',
       text: '确认',
       show: true,
-      color: '#333333'
+      color: '#333333',
+      background: '#ffffff'
     }, {
       title: '取消按钮',
       text: '取消',
       show: true,
-      color: '#999999'
+      color: '#999999',
+      background: '#ffffff'
     }],
     colors: [],
     opacity: '0.4'
@@ -64,6 +72,12 @@ Page({
     data['buttonConf[' + index + '].color'] = e.detail.value
     this.setData(data)
   },
+  handleInputButtonBackgroundColor: function (e) {
+    let index = e.currentTarget.dataset.index
+    let data = {}
+    data['buttonConf[' + index + '].background'] = e.detail.value
+    this.setData(data)
+  },
   showDialog: function() {
     this.setData({
       dialogvisible: true
@@ -75,19 +89,23 @@ Page({
     })
     this._toast('关闭')
   },
-  handleOpen: function() {
-    this._toast('打开')
-  },
   confirm: function() {
     this._toast('confirm')
   },
   cancel: function() {
+    this.closeDialog()
     this._toast('cancel')
+  },
+  getFormId: function(e) {
+    setTimeout(() => {
+      this._toast(`得到FormId：${e.detail.formId}`)
+    }, 2000)
   },
   _toast(msg) {
     wx.showToast({
       title: msg,
-      icon: 'none'
+      icon: 'none',
+      duration: 2000
     })
   }
 })

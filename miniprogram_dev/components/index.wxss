@@ -1,4 +1,3 @@
-@import "./reset.wxss";
 @keyframes modalSlideIn {
   from {
     transform: translate(-50%, 150%);
@@ -11,9 +10,9 @@
   animation: modalSlideIn 0.4s ease;
   animation-fill-mode: forwards;
 }
-view,
-input,
-text {
+.mask view,
+.mask input,
+.mask text {
   font-size: 28rpx;
   color: #333;
 }
@@ -25,6 +24,13 @@ text {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+.mask view {
+  word-break: break-all;
+}
+.mask button::after {
+  content: '';
+  border: none;
 }
 .dialog {
   position: absolute;
@@ -55,8 +61,23 @@ text {
   align-items: center;
   flex: 1;
   font-size: 34rpx;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: none;
   border-top: 1px solid rgba(234, 234, 234, 0.5);
 }
-.button--border {
-  border-right: 1px solid rgba(234, 234, 234, 0.5);
+.dialog--footer__button-cancel {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 14rpx;
+}
+.dialog--footer__button-confirm {
+  border-bottom-left-radius: 0rpx;
+  border-bottom-right-radius: 14rpx;
+}
+.dialog--footer__button-single {
+  border-bottom-right-radius: 14rpx;
+  border-bottom-left-radius: 14rpx;
+}
+.dialog--footer button:nth-child(2) {
+  border-left: 1px solid rgba(234, 234, 234, 0.5);
 }

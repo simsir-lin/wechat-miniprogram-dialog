@@ -1,5 +1,6 @@
 .container {
   min-height: 100vh;
+  padding-bottom: 50rpx;
 }
 
 view {
@@ -13,6 +14,7 @@ input {
 
 .form {
   padding: 30rpx 40rpx;
+  padding-top: 0;
 }
 
 .form-group {
@@ -23,19 +25,13 @@ input {
 }
 
 .inputs {
-  height: 45vw;
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  padding: 40rpx 0;
 }
 
 .inputs>view {
-  width: 70vw;
   display: flex;
   align-items: center;
-  margin: 10rpx 0;
+  margin-top: 20rpx;
 }
 
 .slider {

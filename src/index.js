@@ -6,15 +6,6 @@
 
 Component({
   properties: {
-    visible: {
-      type: Boolean,
-      value: false,
-      observer: function (newVal) {
-        if (newVal) {
-          this.open()
-        }
-      }
-    },
     title: {
       type: String,
       value: '提示'
@@ -58,15 +49,28 @@ Component({
     showCancel: {
       type: Boolean,
       value: true
+    },
+    confirmBackgroundColor: {
+      type: String,
+      value: '#ffffff'
+    },
+    cancelBackgroundColor: {
+      type: String,
+      value: '#ffffff'
+    },
+    loading: {
+      type: Boolean,
+      value: false
+    },
+    gatherFormId: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
     position: 'center'
   },
   methods: {
-    open() {
-      this.triggerEvent('open')
-    },
     close() {
       this.triggerEvent('close')
     },
@@ -80,6 +84,15 @@ Component({
       if (this.data.closeOnClickModal) {
         this.close()
       }
+    },
+    formSubmit(e) {
+      let formid = e.detail.formId
+      if (/requestFormId:fail/.test(formid)) {
+        return
+      }
+      this.triggerEvent('getFormId', {
+        formId: formid
+      })
     }
   }
 })

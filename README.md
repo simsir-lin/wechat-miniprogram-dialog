@@ -7,6 +7,9 @@
 git clone https://github.com/simsir-lin/wechat-miniprogram-dialog.git
 ```
 
+### DEMO
+1. 打开[微信web开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，'本地小程序项目 - 添加项目'，项目目录选择为 miniprogram_dev 目录
+
 ### 使用
 1. 安装
 ```bash
@@ -47,10 +50,14 @@ npm install --save wechat-miniprogram-dialog
 | animation    | 开启动画     | Boolean    | true       |
 | confirmText             | 确定按钮的文字                | String    | 确定          |
 | cancelText             | 取消按钮的文字                 | String    | 取消          |
-| confirmColor             | 确定按钮的文字颜色               | String    | #333333          |
-| cancelColor            | 取消按钮的文字颜色                 | String    | #999999          |
-| showConfirm    | 是否可以通过点击模态层关闭弹窗     | Boolean    | true       |
-| showCancel    | 开启动画     | Boolean    | true       |
+| confirmColor             | 确定按钮的文字颜色               | String    | #333333(支持RGBA)          |
+| cancelColor            | 取消按钮的文字颜色                 | String    | #999999(支持RGBA)          |
+| showConfirm    | 是否显示确定按钮     | Boolean    | true       |
+| showCancel    | 是否显示取消按钮     | Boolean    | true       |
+| confirmBackgroundColor    | 确定按钮背景颜色     | String    | #ffffff(支持RGBA)         |
+| cancelBackgroundColor    | 取消按钮背景颜色     | String    | #ffffff(支持RGBA)         |
+| loading    | 确认按钮是否带 loading 图标     | Boolean    | true       |
+| gatherFormId    | 是否收集formId     | Boolean    | true       |
 
 ### events
 
@@ -60,6 +67,7 @@ npm install --save wechat-miniprogram-dialog
 | close            | 当窗口关闭                 |     |
 | cancel            | 点击取消                 |     |
 | confirm            | 点击确认                 |     |
+| getFormId            | 获取到formid                 |  event.detail.formId   |
 
 ### 贡献
 如果你有好的意见或建议，欢迎给我提issue!

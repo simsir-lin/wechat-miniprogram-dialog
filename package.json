@@ -1,6 +1,6 @@
 {
   "name": "wechat-miniprogram-dialog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "miniprogram_dist/index.js",
   "scripts": {
@@ -60,9 +60,7 @@
     "through2": "^2.0.3",
     "vinyl": "^2.2.0",
     "webpack": "^4.29.5",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "dependencies": {
+    "webpack-node-externals": "^1.7.2",
     "commitizen": "^4.0.3"
   },
   "config": {
