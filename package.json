@@ -28,6 +28,11 @@
       "src"
     ]
   },
+  "keywords": [
+    "wechat",
+    "wechat-miniprogram",
+    "wechat-miniprogram-dialog"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/simsir-lin/wechat-miniprogram-dialog"

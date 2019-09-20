@@ -71,3 +71,6 @@ npm install --save wechat-miniprogram-dialog
 
 ### 贡献
 如果你有好的意见或建议，欢迎给我提issue!
+
+### TODO
+* [x] 支持打开微信开放能力功能
