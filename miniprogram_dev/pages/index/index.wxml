@@ -11,14 +11,21 @@
     confirm-text="{{buttonConf[0].text}}"
     confirm-color="{{buttonConf[0].color}}"
     confirm-background-color="{{buttonConf[0].background}}"
+    confirm-open-type="{{buttonConf[0].openType}}"
     show-cancel="{{buttonConf[1].show}}"
     cancel-text="{{buttonConf[1].text}}"
     cancel-color="{{buttonConf[1].color}}"
     cancel-background-color="{{buttonConf[1].background}}"
+    cancel-open-type="{{buttonConf[1].openType}}"
     bindclose="closeDialog"
     bindcancel="cancel"
     bindconfirm="confirm"
-    bindgetFormId="getFormId" >
+    bindgetFormId="getFormId"
+    bindgetuserinfo="getUserInfo"
+    bindcontact="contact"
+    bindgetphonenumber="getphonenumber"
+    bindopensetting="openSetting"
+    bindlaunchapp="launchApp" >
     <view style='height:200rpx;text-align: center;'>
       这是插入的内容
     </view>
@@ -54,6 +61,10 @@
         <view>背景颜色：</view>
         <input type="text" value="{{ item.background }}" bindinput="handleInputButtonBackgroundColor" data-index="{{index}}"></input>
         <view class="button-conf--color-background" style="background-color:{{item.background}}"></view>
+      </view>
+      <view class="button-conf--color" bindtap="changeOpenType" data-index="{{index}}">
+        <view>微信开放能力：</view>
+        <view>{{ item.openType || '无' }}(可点击修改)</view>
       </view>
     </view>
     <view>

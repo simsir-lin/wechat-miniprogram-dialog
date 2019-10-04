@@ -20,7 +20,7 @@ Component({
     },
     closeOnClickModal: {
       type: Boolean,
-      value: true
+      value: false
     },
     animation: {
       type: Boolean,
@@ -41,6 +41,14 @@ Component({
     cancelColor: {
       type: String,
       value: '#999999'
+    },
+    confirmOpenType: {
+      type: String,
+      value: ''
+    },
+    cancelOpenType: {
+      type: String,
+      value: ''
     },
     showConfirm: {
       type: Boolean,
@@ -65,6 +73,14 @@ Component({
     gatherFormId: {
       type: Boolean,
       value: false
+    },
+    appParameter: {
+      type: String,
+      value: ''
+    },
+    sessionFrom: {
+      type: String,
+      value: ''
     }
   },
   data: {
@@ -93,6 +109,21 @@ Component({
       this.triggerEvent('getFormId', {
         formId: formid
       })
+    },
+    getUserinfo(e) {
+      this.triggerEvent('getuserinfo', e.detail)
+    },
+    contact(e) {
+      this.triggerEvent('contact')
+    },
+    getphonenumber(e) {
+      this.triggerEvent('getphonenumber', e.detail)
+    },
+    opensetting() {
+      this.triggerEvent('opensetting')
+    },
+    launchapp() {
+      this.triggerEvent('launchapp')
     }
   }
 })

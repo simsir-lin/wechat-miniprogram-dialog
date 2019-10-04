@@ -13,7 +13,7 @@ Page({
       value: true
     }, {
       text: '是否可以点击modal关闭Dialog',
-      value: true
+      value: false
     }, {
       text: '确认按钮是否带 loading 图标',
       value: false
@@ -21,18 +21,21 @@ Page({
       text: '是否收集formId',
       value: false
     }],
+    openTypes: ['', 'getUserInfo', 'contact', 'getPhoneNumber', 'openSetting', 'launchApp'],
     buttonConf: [{
       title: '确认按钮',
       text: '确认',
       show: true,
       color: '#333333',
-      background: '#ffffff'
+      background: '#ffffff',
+      openType: ''
     }, {
       title: '取消按钮',
       text: '取消',
       show: true,
       color: '#999999',
-      background: '#ffffff'
+      background: '#ffffff',
+      openType: ''
     }],
     colors: [],
     opacity: '0.4'
@@ -78,6 +81,19 @@ Page({
     data['buttonConf[' + index + '].background'] = e.detail.value
     this.setData(data)
   },
+  changeOpenType: function (e) {
+    let index = e.currentTarget.dataset.index
+    let data = {}
+    wx.showActionSheet({
+      itemList: this.data.openTypes.map((item) => {
+        return item.length > 0 ? item : '无'
+      }),
+      success: (res) => {
+        data['buttonConf[' + index + '].openType'] = this.data.openTypes[res.tapIndex]
+        this.setData(data)
+      }
+    })
+  },
   showDialog: function() {
     this.setData({
       dialogvisible: true
@@ -100,6 +116,25 @@ Page({
     setTimeout(() => {
       this._toast(`得到FormId：${e.detail.formId}`)
     }, 2000)
+  },
+  getUserInfo: function (e) {
+    this.closeDialog()
+    console.log(e)
+    this._toast(`用户昵称：${e.detail.userInfo.nickName}`)
+  },
+  contact: function () {
+    this._toast('contact')
+  },
+  getphonenumber(e) {
+    this.closeDialog()
+    console.log(e)
+    this._toast(e.detail.errMsg)
+  },
+  openSetting() {
+    this._toast('openSetting')
+  },
+  launchApp() {
+    this._toast('launchApp')
   },
   _toast(msg) {
     wx.showToast({

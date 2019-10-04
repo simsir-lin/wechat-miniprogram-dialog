@@ -4,8 +4,35 @@
     <view class="dialog--body"><slot></slot></view>
     <form bindsubmit="formSubmit" report-submit="true" report-submit-timeout="300" >
       <view class="dialog--footer" wx:if="{{showConfirm || showCancel}}">
-        <button wx:if="{{showCancel}}" class="dialog--footer__button dialog--footer__button-cancel {{!showConfirm ? 'dialog--footer__button-single':''}}" style="color:{{cancelColor}};background-color:{{cancelBackgroundColor}}" form-type="{{gatherFormId ? 'submit':''}}" catch:tap="cancel">{{ cancelText }}</button>
-        <button wx:if="{{showConfirm}}" class="dialog--footer__button dialog--footer__button-confirm {{!showCancel ? 'dialog--footer__button-single':''}}" style="color:{{confirmColor}};background-color:{{confirmBackgroundColor}}" form-type="{{gatherFormId ? 'submit':''}}" catch:tap="confirm" loading="{{loading}}">{{ confirmText }}</button>
+        <button
+          wx:if="{{showCancel}}"
+          class="dialog--footer__button dialog--footer__button-cancel {{!showConfirm ? 'dialog--footer__button-single':''}}"
+          style="color:{{cancelColor}};background-color:{{cancelBackgroundColor}}"
+          form-type="{{gatherFormId ? 'submit':''}}"
+          open-type="{{cancelOpenType}}"
+          catch:tap="{{cancelOpenType ? '' : 'cancel'}}"
+          bindgetuserinfo="getUserinfo"
+          session-from="{{sessionFrom}}"
+          bindcontact="contact"
+          bindgetphonenumber="getphonenumber"
+          bindopensetting="opensetting"
+          bindlaunchapp="launchapp"
+          app-parameter="{{appParameter}}" >{{ cancelText }}</button>
+        <button
+          wx:if="{{showConfirm}}"
+          class="dialog--footer__button dialog--footer__button-confirm {{!showCancel ? 'dialog--footer__button-single':''}}"
+          style="color:{{confirmColor}};background-color:{{confirmBackgroundColor}}"
+          form-type="{{gatherFormId ? 'submit':''}}"
+          open-type="{{confirmOpenType}}"
+          catch:tap="{{confirmOpenType ? '' : 'confirm'}}"
+          loading="{{loading}}"
+          bindgetuserinfo="getUserinfo"
+          session-from="{{sessionFrom}}"
+          bindcontact="contact"
+          bindgetphonenumber="getphonenumber"
+          bindopensetting="opensetting"
+          bindlaunchapp="launchapp"
+          app-parameter="{{appParameter}}" >{{ confirmText }}</button>
       </view>
     </form>
   </view>

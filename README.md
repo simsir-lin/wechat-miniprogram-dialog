@@ -2,6 +2,12 @@
 
 ![预览图](https://raw.githubusercontent.com/simsir-lin/wechat-miniprogram-dialog/master/screenshot.jpg "预览图")
 
+## 特性
+* 仿官方弹窗样式
+* 支持调整模态透明度
+* 支持获取Formid
+* 支持打开微信开放能力功能
+
 ### 下载
 ``` bash
 git clone https://github.com/simsir-lin/wechat-miniprogram-dialog.git
@@ -42,11 +48,10 @@ npm install --save wechat-miniprogram-dialog
 
 | name     | description              | type     | default value |
 | :---------------- | :----------------------- | :------  | :------------ |
-| visible            |  是否显示                | Boolean    | false        |
 | title             | 标题                 | String    | 提示          |
 | width             | 宽度                 | String    | 650rpx          |
 | opacity             | 模态层的透明度                 | Number    | 0.4       |
-| closeOnClickModal    | 是否可以通过点击模态层关闭弹窗     | Boolean    | true       |
+| closeOnClickModal    | 是否可以通过点击模态层关闭弹窗     | Boolean    | false       |
 | animation    | 开启动画     | Boolean    | true       |
 | confirmText             | 确定按钮的文字                | String    | 确定          |
 | cancelText             | 取消按钮的文字                 | String    | 取消          |
@@ -56,8 +61,12 @@ npm install --save wechat-miniprogram-dialog
 | showCancel    | 是否显示取消按钮     | Boolean    | true       |
 | confirmBackgroundColor    | 确定按钮背景颜色     | String    | #ffffff(支持RGBA)         |
 | cancelBackgroundColor    | 取消按钮背景颜色     | String    | #ffffff(支持RGBA)         |
+| confirmOpenType    | 确定按钮微信开放能力，请参考https://developers.weixin.qq.com/miniprogram/dev/component/button.html    | String    |          |
+| cancelOpenType    | 取消按钮微信开放能力，请参考https://developers.weixin.qq.com/miniprogram/dev/component/button.html     | String    |          |
 | loading    | 确认按钮是否带 loading 图标     | Boolean    | true       |
 | gatherFormId    | 是否收集formId     | Boolean    | true       |
+| appParameter    | 打开 APP 时，向 APP 传递的参数，*-open-type="launchApp"时有效     | String    |        |
+| sessionFrom    | 会话来源，*-open-type="contact"时有效     | String    |        |
 
 ### events
 
@@ -68,9 +77,12 @@ npm install --save wechat-miniprogram-dialog
 | cancel            | 点击取消                 |     |
 | confirm            | 点击确认                 |     |
 | getFormId            | 获取到formid                 |  event.detail.formId   |
+| getuserinfo            | 点击按钮时，会返回获取到的用户信息，*-open-type="getUserInfo"时有效          |  event.detail   |
+| contact            | 客服消息回调，*-open-type="contact"时有效                 |     |
+| getphonenumber            | 获取用户手机号回调，*-open-type="getPhoneNumber"时有效    |  event.detail   |
+| opensetting            | 在打开授权设置页后回调，*-open-type="openSetting"时有效    |     |
+| launchapp            | 打开 APP 成功的回调，*-open-type="launchApp"时有效    |     |
+
 
 ### 贡献
 如果你有好的意见或建议，欢迎给我提issue!
-
-### TODO
-* [x] 支持打开微信开放能力功能
