@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes modalSlideIn {
+@keyframes modalSlideInBottom {
   from {
     transform: translate(-50%, 150%);
   }
@@ -18,8 +18,22 @@
   }
 }
 
-.animation-top,.animation-bottom {
-  animation: modalSlideIn 0.4s ease;
+@keyframes modalSlideInTop {
+  from {
+    transform: translate(-50%, -150%);
+  }
+
+  to {
+    transform: translate(-50%, 0%);
+  }
+}
+
+.animation-top {
+  animation: modalSlideInTop 0.4s ease;
+  animation-fill-mode: forwards;
+}
+.animation-bottom {
+  animation: modalSlideInBottom 0.4s ease;
   animation-fill-mode: forwards;
 }
 .animation-center {

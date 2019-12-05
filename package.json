@@ -1,6 +1,6 @@
 {
   "name": "wechat-miniprogram-dialog",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {

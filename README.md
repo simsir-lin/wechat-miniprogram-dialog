@@ -21,7 +21,8 @@ git clone https://github.com/simsir-lin/wechat-miniprogram-dialog.git
 ```bash
 npm install --save wechat-miniprogram-dialog
 ```
-2. 在你的页面json中添加
+2. 每次引入或更新需先执行开发者工具的 npm 构建，[微信官方 npm 文档](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+3. 在你的页面json中添加
 ``` javascript
 {
   "usingComponents": {
@@ -29,7 +30,6 @@ npm install --save wechat-miniprogram-dialog
   }
 }
 ```
-3. 每次引入或更新需先执行开发者工具的 npm 构建，[微信官方 npm 文档](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
 4. 在wxml中即可使用组件
 ``` html
 <dialog></dialog>

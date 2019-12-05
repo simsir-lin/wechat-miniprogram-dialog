@@ -1,6 +1,6 @@
 <view class="mask" style="background-color: rgba(0, 0, 0, {{opacity}})" catchtouchstart="touchMask">
 </view>
-<view class="dialog dialog-{{position}} {{animation ? 'animation-' + position:''}}" style="width:{{width}};max-width:{{width}};">
+<view class="dialog dialog-{{position}} {{animation ? 'animation-' + position:''}}" style="width:{{width}};max-width:{{width}};{{position === 'top' ? 'border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;':''}}">
   <view class="dialog--header" wx:if="{{title}}">{{ title }}</view>
   <view class="dialog--body"><slot></slot></view>
   <form bindsubmit="formSubmit" report-submit="true" report-submit-timeout="300" >
@@ -8,7 +8,7 @@
       <button
         wx:if="{{showCancel}}"
         class="dialog--footer__button dialog--footer__button-cancel {{!showConfirm ? 'dialog--footer__button-single':''}}"
-        style="color:{{cancelColor}};background-color:{{cancelBackgroundColor}}"
+        style="color:{{cancelColor}};background-color:{{cancelBackgroundColor}};{{position === 'bottom' ? 'border-radius: 0rpx;':''}}"
         form-type="{{gatherFormId ? 'submit':''}}"
         open-type="{{cancelOpenType}}"
         catch:tap="{{cancelOpenType ? '' : 'cancel'}}"
@@ -22,7 +22,7 @@
       <button
         wx:if="{{showConfirm}}"
         class="dialog--footer__button dialog--footer__button-confirm {{!showCancel ? 'dialog--footer__button-single':''}}"
-        style="color:{{confirmColor}};background-color:{{confirmBackgroundColor}}"
+        style="color:{{confirmColor}};background-color:{{confirmBackgroundColor}};{{position === 'bottom' ? 'border-radius: 0rpx;':''}}"
         form-type="{{gatherFormId ? 'submit':''}}"
         open-type="{{confirmOpenType}}"
         catch:tap="{{confirmOpenType ? '' : 'confirm'}}"
