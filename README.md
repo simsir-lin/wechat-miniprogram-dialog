@@ -67,6 +67,7 @@ npm install --save wechat-miniprogram-dialog
 | gatherFormId    | 是否收集formId     | Boolean    | true       |
 | appParameter    | 打开 APP 时，向 APP 传递的参数，*-open-type="launchApp"时有效     | String    |        |
 | sessionFrom    | 会话来源，*-open-type="contact"时有效     | String    |        |
+| position    | 位置，有center、top、bottom     | String    |    center    |
 
 ### events
 

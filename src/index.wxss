@@ -1,6 +1,6 @@
-@keyframes modalSlideIn {
+@keyframes modalSlideInCenter {
   from {
-    transform: translate(-50%, 150%);
+    transform: translate(-50%, 0%);
   }
 
   to {
@@ -8,8 +8,22 @@
   }
 }
 
-.animation {
+@keyframes modalSlideIn {
+  from {
+    transform: translate(-50%, 150%);
+  }
+
+  to {
+    transform: translate(-50%, 0%);
+  }
+}
+
+.animation-top,.animation-bottom {
   animation: modalSlideIn 0.4s ease;
+  animation-fill-mode: forwards;
+}
+.animation-center {
+  animation: modalSlideInCenter 0.4s ease;
   animation-fill-mode: forwards;
 }
 
@@ -28,23 +42,35 @@
   overflow: hidden;
 }
 
-.mask view {
+.dialog view {
   word-break: break-all;
 }
 
-.mask button::after {
+.dialog button::after {
   content: '';
   border: none;
 }
 
 .dialog {
-  position: absolute;
+  position: fixed;
   z-index: 10001;
   background-color: #fff;
   border-radius: 14rpx;
+}
+
+.dialog-center {
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.dialog-top {
+  left: 50%;
+  top: 0px;
+}
+
+.dialog-bottom {
+  left: 50%;
+  bottom: 0px;
 }
 
 .dialog--header {

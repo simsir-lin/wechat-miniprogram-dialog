@@ -1,21 +1,37 @@
-@keyframes modalSlideIn {
+@keyframes modalSlideInCenter {
   from {
-    transform: translate(-50%, 150%);
+    transform: translate(-50%, 0%);
   }
+
   to {
     transform: translate(-50%, -50%);
   }
 }
-.animation {
+
+@keyframes modalSlideIn {
+  from {
+    transform: translate(-50%, 150%);
+  }
+
+  to {
+    transform: translate(-50%, 0%);
+  }
+}
+
+.animation-top,.animation-bottom {
   animation: modalSlideIn 0.4s ease;
   animation-fill-mode: forwards;
 }
-.mask view,
-.mask input,
-.mask text {
+.animation-center {
+  animation: modalSlideInCenter 0.4s ease;
+  animation-fill-mode: forwards;
+}
+
+.mask view,.mask input,.mask text {
   font-size: 28rpx;
   color: #333;
 }
+
 .mask {
   position: fixed;
   top: 0;
@@ -25,22 +41,38 @@
   height: 100%;
   overflow: hidden;
 }
-.mask view {
+
+.dialog view {
   word-break: break-all;
 }
-.mask button::after {
+
+.dialog button::after {
   content: '';
   border: none;
 }
+
 .dialog {
-  position: absolute;
+  position: fixed;
   z-index: 10001;
   background-color: #fff;
   border-radius: 14rpx;
+}
+
+.dialog-center {
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
 }
+
+.dialog-top {
+  left: 50%;
+  top: 0px;
+}
+
+.dialog-bottom {
+  left: 50%;
+  bottom: 0px;
+}
+
 .dialog--header {
   padding: 30rpx 0;
   text-align: center;
@@ -50,10 +82,12 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
 .dialog--footer {
   display: flex;
   justify-content: space-around;
 }
+
 .dialog--footer__button {
   height: 98rpx;
   display: flex;
@@ -66,18 +100,22 @@
   border: none;
   border-top: 1px solid rgba(234, 234, 234, 0.5);
 }
+
 .dialog--footer__button-cancel {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 14rpx;
 }
+
 .dialog--footer__button-confirm {
   border-bottom-left-radius: 0rpx;
   border-bottom-right-radius: 14rpx;
 }
+
 .dialog--footer__button-single {
   border-bottom-right-radius: 14rpx;
   border-bottom-left-radius: 14rpx;
 }
+
 .dialog--footer button:nth-child(2) {
   border-left: 1px solid rgba(234, 234, 234, 0.5);
 }

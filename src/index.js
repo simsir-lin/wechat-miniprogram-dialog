@@ -81,10 +81,13 @@ Component({
     sessionFrom: {
       type: String,
       value: ''
+    },
+    position: {
+      type: String,
+      value: 'center'
     }
   },
   data: {
-    position: 'center'
   },
   methods: {
     close() {
