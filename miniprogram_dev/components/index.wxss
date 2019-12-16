@@ -40,6 +40,15 @@
   animation: modalSlideInCenter 0.4s ease;
   animation-fill-mode: forwards;
 }
+.none-animation-top {
+  transform: translate(0%, -50%);
+}
+.none-animation-bottom {
+  transform: translate(-50%, 0%);
+}
+.none-animation-center {
+  transform: translate(-50%, -50%);
+}
 
 .mask view,.mask input,.mask text {
   font-size: 28rpx;

@@ -32,18 +32,18 @@
   </dialog>
   <view class='form'>
     <view class='inputs'>
-      <view wx:for="{{inputs}}" wx:key="{{index}}">
+      <view wx:for="{{inputs}}" wx:key="index">
         <text>{{ item.text }}</text>
         <input value='{{item.value}}' bindinput='handleInput' data-index="{{index}}"></input>
       </view>
     </view>
-    <view class='form-group' wx:for="{{switchs}}" wx:key="{{index}}">
+    <view class='form-group' wx:for="{{switchs}}" wx:key="index">
       <view>{{ item.text }}</view>
       <view>
         <switch checked="{{item.value}}" bindchange='handleSwitchChange' data-index="{{index}}" />
       </view>
     </view>
-    <view class="button-conf" wx:for="{{buttonConf}}" wx:key="{{index}}">
+    <view class="button-conf" wx:for="{{buttonConf}}" wx:key="index">
       <view class="button-conf--title">
         <view>{{ item.title }}</view>
         <switch checked="{{item.show}}" bindchange='handleSwitchButton' data-index="{{index}}" />

@@ -1,6 +1,6 @@
 <view class="mask" style="background-color: rgba(0, 0, 0, {{opacity}})" catchtouchstart="touchMask">
 </view>
-<view class="dialog dialog-{{position}} {{animation ? 'animation-' + position:''}}" style="width:{{width}};max-width:{{width}};{{position === 'top' ? 'border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;':''}}">
+<view class="dialog dialog-{{position}} {{animation ? 'animation-' + position : 'none-animation-' + position}}" style="width:{{width}};max-width:{{width}};{{position === 'top' ? 'border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;':''}}{{position === 'bottom' ? 'border-bottom-left-radius: 0rpx;border-bottom-right-radius: 0rpx;':''}}">
   <view class="dialog--header" wx:if="{{title}}">{{ title }}</view>
   <view class="dialog--body"><slot></slot></view>
   <form bindsubmit="formSubmit" report-submit="true" report-submit-timeout="300" >
